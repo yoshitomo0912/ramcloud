@@ -38,7 +38,7 @@ struct SegmentHeader {
     {
         Crc32C segmentChecksum;
         segmentChecksum.update(this,
-            static_cast<unsigned>(sizeof(*this) - sizeof(Crc32C::ResultType)));
+            sizeof(*this) - sizeof(Crc32C::ResultType));
         checksum = segmentChecksum.getResult();
     }
 
